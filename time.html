@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="hour">select hour</label>
+    <select name="" id="hour"></select>
+    <label for="Minute">selecte min</label>
+    <select name="" id="min"></select>
+    <button onclick="alarmchk()">Set Alarm</button>
+    <h1 id="showdate"></h1>
+    <h1 id="display"></h1>
+</body>
+</html>
+<script>
+    let date= new Date()
+    let display=document.getElementById("display")
+    let hour=document.getElementById("hour")
+    let Minute=document.getElementById("min")
+    let showdate=document.getElementById("showdate")
+
+
+    let minute = date.getMinutes()
+    console.log(minute);
+    console.log(date);
+
+    for (let index = 1; index <=12; index++) {
+        hour.innerHTML+=`
+        <option value="${index}">${index}</option>
+
+        ` ;
+        
+    }
+
+    for (let index = 1; index <= 60; index++) {
+        if (index.toString().length ==1) {
+            Minute.innerHTML+=`    <option value=0"${index}">0${index}</option>
+` 
+        }else{
+            Minute.innerHTML+=`    <option value="${index}">${index}</option>
+`
+        }
+
+        
+        
+    }
+    let alamring= setInterval(() => {
+        let datte = new Date()
+        if (hour.value == datte.getHours() && Minute.value== datte.getMinutes()) {
+            clearInterval(alamring)
+            alert("Alarm Ringing")
+        }
+    }, 2000);
+    function alarmchk() {
+        alert("Alarm set!!!")
+        
+    }
+setInterval(() => {
+    let dateee= new Date();
+    display.innerHTML=`${dateee.getHours()} :${dateee.getMinutes()}: ${dateee.getSeconds()}
+    ${date.getHours() > 11? "PM": "AM"}
+    
+    `
+    
+}, 1000);
+</script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="../bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="createNewaccount.css">
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
+
+
+</head>
+<body>
+    <form action="">
+    <div id="body">
+         <div id="body2">
+             <img src="C:\Users\paxto\OneDrive\Desktop\projectbank\OIP__1_-removebg-preview.png" alt="">
+         </div>
+        
+          <div id="body1">
+             <div id="body3">
+                  <h1>Create Your Account</h1>
+                  <div>
+                      <label for="">Select Country</label>
+                       <select id="con">
+                        <option>Nigeria</option>
+                        <option>Ghana</option>
+                        <option>Tanzania</option>
+                       </select>
+                 </div>
+                 <div>
+                     <label for="">Full Name</label>
+                     <input type="text" name="" id="username" placeholder="User Name">
+                 </div>               
+                 <div>
+                        <label for="">Login Email</label>
+                        <input type="email" name="" id="email" placeholder="Email Address">
+                 </div>
+                  <div>
+                        <label for="">New Password</label>
+                        <input type="password" name="" id="npassword" placeholder="New Password">
+                 </div>
+                 <div>
+                    <label for="">Confarm Password</label>
+                    <input type="password" name="" id="cpassword" placeholder="Confarm Password">
+                 </div>
+                 <main id="gree" style="display:flex ; accent-color: red;  gap: 20px; " >
+                    <input  style="width: 20px;" type="checkbox" name="" id="inputtypecheck">
+                    <p > I agree to the <a href="" style="text-decoration: none;">Service Agreement & Privacy and Cookie Policy.</a></p>
+                 </main>
+                 <div style="gap: 10px;">
+                    <button type="button" onclick="CreateAccount(event)">Next</button>
+                    
+                    <p>Already have an account? <a href="login.html">Log in</a></p>
+                 </div>
+                </div>
+         </div>
+         <div id="body13">
+                    <div id="body14">
+                    <h1>Set Your Pin</h1>
+                    <div >
+                        <input maxlength="1" class="inp" type="text" name="" onkeyup="typ()" id="inp">
+                        <input maxlength="1" class="inp" type="text" name="" onkeyup="typ()" id="inp2">
+                        <input maxlength="1" class="inp" type="text" name=""  onkeyup="typ()" id="inp3">
+                        <input maxlength="1" class="inp" type="text" name=""b   onkeyup="typ()" id="inp4">
+                        
+                    </div>
+                    <button class="btn btn-danger w-5 "  type="button" id="sh" onclick="Done(event)">Done</button>
+                    <p>This is your unique Evans Account </p>
+                    </div>
+           
+                </div>  
+         
+        </div>
+    </div>
+   </form>    
+   
+
+    
+
+    
+</body>
+</html>
+<script src="createAccount.js" >
+</script>

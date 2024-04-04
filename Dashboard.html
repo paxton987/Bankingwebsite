@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="Dashboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
+
+</head>
+<body>
+  <div id="loder"   style="width: 100%; height: 100vh;  background-color: rgba(0, 0, 0, 0.61); display: flex; flex-direction: column; justify-content: center; align-items: center;  gap: 20px;  top: 0;
+  z-index: 2;
+  left: 0; position: fixed;">
+   
+  
+  <div class="spinner-grow text-primary text-warning" style="width: 20rem; height: 20rem;" role="status">
+    <span  class="visually-hidden">Please wait....</span>
+  </div>
+  <div>
+     <h3 class="text-danger" style="font-weight: 100; font-family: Georgia, 'Times New Roman', Times, serif;">Please wait....</h3>
+  </div>
+  </div>
+  <div id="loder1"  style="width: 100%; height: 100vh;  background-color: rgba(0, 0, 0, 0.61); display: none; flex-direction: column; justify-content: center; align-items: center;  gap: 20px;  top: 0;
+  z-index: 2;
+  left: 0; position: fixed;">
+   
+  
+  <div class="spinner-grow text-primary text-warning" style="width: 20rem; height: 20rem;" role="status">
+    <span  class="visually-hidden">Please wait....</span>
+  </div>
+  <div>
+     <h3 class="text-danger" style="font-weight: 100; font-family: Georgia, 'Times New Roman', Times, serif;">Please wait....</h3>
+  </div>
+  </div>
+    <div id="body1">
+        <div id="contain">
+            <div id="body2">
+                <div>
+                     <div>
+                         <img src="C:\Users\paxto\OneDrive\Desktop\projectbank\Add_a_heading-removebg-preview.png" alt="">
+                     </div>
+                     <div id="body2_1">
+                        <h4 style="font-size: large; color: orange; text-align: start; font-size: 15px;" id="">Acount number</h4>
+                        <h4 style="font-size: large; text-align: start;" id="showa"></h4>
+                        <!-- <button onclick="copyit()" style="border:none; width:20px; background:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.<path fill="#FFD43B" d="M208 0H332.1c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9V336c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V48c0-26.5 21.5-48 48-48zM48 128h80v64H64V448H256V416h64v48c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48z"/></svg></button> -->
+                     </div>
+                </div>
+             </div>
+             <div id="body4">
+                 
+                   <div id="body4_2">
+                     <div onclick="home()">
+                        <main id="main1">
+                            <span class="material-symbols-outlined"> home_work</span>                         <button >Home</button>
+                        </main>
+                        <main id="main2">
+                            <span id="Materials1" class="material-symbols-outlined">navigate_next </span>
+                        </main>
+                     </div>
+                     <div onclick="transferpage()">
+                        <main  id="main1">
+                            <span id="Material" class="material-symbols-outlined">trending_up </span>
+                            <button >Send Money</button>
+                        </main>
+                        <main id="main2">
+                            <span id="Materials1" class="material-symbols-outlined">navigate_next </span>
+                        </main>
+                     </div>
+                     <div>
+                        <main id="main1">
+                            <span id="Material" class="material-symbols-outlined"> account_balance</span>
+                            <button>Transaction History</button>
+                        </main>
+                        <main id="main2">
+                            <span id="Materials1" class="material-symbols-outlined">navigate_next </span>
+                        </main>
+                     </div>
+                     <div onclick="airtime9()">
+                        <main id="main1">
+                            <span class="material-symbols-outlined">call</span>                         <button >Airtime</button>
+                        </main>
+                        <main id="main2">
+                            <span id="Materials1" class="material-symbols-outlined">navigate_next </span>
+                        </main>
+                     </div>
+                     <div>
+                        <main id="main1">
+                            <span id="Material" class="material-symbols-outlined">credit_card</span>
+                            <button>Debit card</button>
+                        </main>
+                        <main id="main2">
+                            <span id="Materials1" class="material-symbols-outlined">navigate_next </span>
+                        </main>
+                     
+    
+                     
+                     
+                   </div>
+                </div>
+                <div id="body4_3">
+                    <div>
+                        <main id="main1">
+                            <span id="Material" class="material-symbols-outlined"> settings </span>  
+                            <button>Settings</button>
+                        </main>
+                        <main id="main2">
+                            <span id="Materials1" class="material-symbols-outlined">navigate_next </span>
+                        </main>
+                     </div>
+                     <div>
+                        <main id="main1">
+                            <span id="Material" class="material-symbols-outlined">account_circle</span>              
+                            <button>Debit card</button>
+                        </main>
+                        <main id="main2">
+                            <span id="Materials1" class="material-symbols-outlined">navigate_next </span>
+                        </main>
+                     </div>
+                      
+                </div>
+     
+                
+                
+             </div>
+        </div>
+        <div id="contain1">
+            <div id="body3">
+               
+                    <div id="show" >
+                        <button style="border: none; background: none;" onclick="showbut()"><span style="font-size: px; background-image: linear-gradient(to left, rgb(221, 149, 14), rgb(21, 21, 214)); color: white;" class="material-symbols-outlined">
+                            menu
+                            </span></button>
+                        
+                    </div>
+               
+                <div  id="body3_1">
+                    <h1 >Hi,<span id="shown"></span></h1>
+                    <p>Welcome, let's make payments!</p>
+                </div>
+                <div id="body3_2">
+                    <div id="body3_4">
+                        <input type="text" name="" id="">
+                        <span class="material-symbols-outlined"> search </span>
+                    </div>
+                    <div id="body3_3">
+                       <img style="width: 25px; height: 27px;" src="C:\Users\paxto\OneDrive\Desktop\projectbank\Screenshot_30-3-2024_101647_fontawesome.com-removebg-preview.png" alt="">
+                </div> 
+                    
+                    <div onclick="transferpage()" id="body3_3">
+                          <img style="width: 40px; border-radius: 20px;" src="C:\Users\paxto\OneDrive\Desktop\projectbank\Fidelity-onb-individual.jpg" alt="">
+                    </div> 
+                   
+                    
+                </div>
+                <!-- <div   id="body3_8">
+                    <img style="width: 20%; border-radius: 20px;" src="C:\Users\paxto\OneDrive\Desktop\projectbank\Fidelity-onb-individual.jpg" alt="">
+
+            </div>  -->
+            </div>
+            <div id="body5">
+                <div id="body5_1">
+                   <div id="each2">
+                     <div id="pass">
+                            <div style="display: flex;" id="account">
+                            <main id="main1">
+                                    
+                                    <h1 style="color: rgba(0, 0, 0, 0.808);">**</h1>
+                                    <h3 style="color: rgba(0, 0, 0, 0.795);" id="display1"></h3>
+                            </main>
+                            </div>
+                            <div id="account_balance">
+                                <main>  <h3  style="font-size: 25px; color:  rgb(85,28,126);">Account balance</h3></main>
+                                <main>
+                                    <h1 style="color:  rgb(85,28,126);">NGN</h1>
+                                    <h1 style="color: rgb(85,28,126);" id="numberss">00.00</h1>
+                                    <button onclick="eyes()">show</button>
+                                </main>
+                            </div>
+                     </div>
+                 </div>
+                   <div id="each3">
+                        <div>
+                            <h1>Quick Transfer</h1>
+                            <input type="text" name="" id="" placeholder="Acount Number">
+                            <input type="text" name="" id="" placeholder="Amount">
+                            <button>Next</button>
+                        </div>
+                   </div>
+                   <div id="each4">
+                      <main>
+                        <div style="display: flex; width: 100%; justify-content: space-between; background-color: red;">
+                            <h6>Transaction</h6>
+                            <h6>Category</h6>
+                            <h6>Date</h6>
+                            <h6>Amount</h6>
+                            
+                        </div>
+                        <div style="width: 100%;">
+                            <div style="display: flex;  width: 100%;  height: 300px; color: white; font-weight: 100; align-items: start; gap: 10px; " id="">
+                                <div id="showimg" style="width: 43%;  gap: 10px; display: flex;flex-direction: column;  height: 50px; "></div>
+                                <div id="showimg1" style="width: 33%; gap: 10px; display: flex;flex-direction: column;  height: 50px; "></div>
+                                <div id="showimg2" style="width: 33%; gap: 10px; display: flex;flex-direction: column;  height: 50px;"></div>
+                                <div id="showimg3" style="width: 25%; gap: 1px; display: flex;flex-direction: column;  height: 50px;"></div>
+                                
+                            </div>
+                            <!-- <div style="display: flex;  flex-direction: column; width: 20%;  height: 300px; background-color: red; align-items: start; gap: 15px; " id="category"></div> -->
+                            <!-- <div id="category" style="width: 20%; background-color: bisque; gap: 15px;"></div> -->
+                            <!-- <div id="date2" style="width: 15%; background-color: rgb(255, 196, 222);">h</div>
+                            <div id="amount_1" style="width: 20%; background-color: rgb(196, 255, 222);">h</div>
+                            <div style="width: 20%; background-color: rgb(207, 196, 255);">h</div> -->
+                            
+                            
+                        </div>
+                      </main>
+                   </div>
+                   <div id="each5">
+
+                   </div>
+              </div>
+         </div>
+            <div  id="body6">
+                <div class="general-body6">
+                    <div id="body6_1">
+                       <div id="howto">
+                        <h1>How do you want to transfer fund?</h1>
+                       </div>
+                       <div id="body6_2">
+                            <div id="each">
+                                <img src="../224-020_ImperialGlory.jpg" alt="">
+                            </div>
+                            <div id="each">
+                                <img src="../Shepard-DefendDignity.jpg" alt="">
+                            </div>
+                            <div id="each">
+                                <img src="../OIP (5).jpeg" alt="">
+                            </div>
+                            <div id="each">
+                                <img src="../Fidelity-onb-individual.jpg" alt="">
+                            </div>
+                            <div id="each">
+                                <img src="../567213_1_l_1_2048x.webp" alt="">
+                            </div>
+                        
+                       </div>
+                     <div id="body6_3">
+                        
+                         <div id="div2">
+                         <main>
+                                <div onclick="ss(event)" id="b" style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="background-color: rgb(0, 255, 68); width: 30px; height: 30px; border-radius: 50px; align-items: center; justify-content: center; display: flex; ">
+                                        <span class="material-symbols-outlined">send</span>
+                                    </div>
+                                    <button id="frombal" onclick="frombal(event)" style="background: none; border: none; color: white; ">From  your account balance</button>
+                                    
+
+                                </div>
+                                <div id="a">
+                                    <span class="material-symbols-outlined"> arrow_forward </span>
+                                </div>
+                         </main>
+                         <main>
+                                <div id="b" style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="background-color: rgb(0, 140, 255); width: 30px; height: 30px; border-radius: 50px; align-items: center; justify-content: center; display: flex; ">
+                                        <span id="Material" class="material-symbols-outlined">credit_card</span>
+                                    </div>
+                                    <button style="background: none; border: none; color: white;">From Card</button>
+                                    
+
+                                </div>
+                                <div id="a">
+                                    <span class="material-symbols-outlined"> arrow_forward </span>
+                                </div>
+                         </main>
+                         <main>
+                                <div id="b" style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="background-color: rgb(187, 255, 0); width: 30px; height: 30px; border-radius: 50px; align-items: center; justify-content: center; display: flex; ">
+                                        <span class="material-symbols-outlined">sync_alt </span>                                    </div>
+                                    <button style="background: none; border: none; color: white;"> Between Your Account</button>
+                                    
+
+                                </div>
+                                <div id="a">
+                                    <span class="material-symbols-outlined"> arrow_forward </span>
+                                </div>
+                         </main>
+                        
+                       </div>
+                     
+                    </div>
+                   
+                    </div>
+                    <div id="airtime5">
+                        <h1>Bank Transfer</h1>
+                                    
+                       <div>
+                            <label for="">Amount</label>
+                            <input style="width: 80%; height: 65px; font-size: 50px; color:  black; border: none rgba(255, 255, 255, 0.387); background-color: white;" type="text" id="ssss" placeholder="₦500.00">
+                         </div>
+                         <div>
+                            <label for="">Select Bank</label>
+                            <select style="background-color: white; color: black;">
+    
+                                <option value="">Select bank</option>
+                                <option value="">Evans bank</option>
+                                <option value="">First Bank</option>
+                                <option value="">Access Bank</option>
+                               
+                            </select>
+                        </div>   
+                        <div>
+                            <label for="">User Acount  Number (Full)</label>
+                            <input oninput="showacc()" style="width: 75%; height: 30px; ; background-color: white; ; color: black;" type="number" name="" id="useracc" placeholder="Number">
+                        </div>
+                        <div>
+                            <label for="">User Name (Full)</label>
+                            <input style="width: 75%; height: 30px; background-color: white;; color: black;" type="text" name="" id="username1" placeholder="des...">
+                            <p id="discription"></p>
+                        </div>
+                        <div >
+                            <label for="">Discription</label>
+                            <input style="width: 75%; height: 30px; background-color:white;  ; color: black;" type="text" name="" id="" placeholder="Account...">
+                        </div>
+                        <div style="gap: 10px;">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="transfer(event)">Pay</button>
+                            </div>
+                    </div>
+                  
+                </div>
+                
+            </div>
+            <!-- <button >Open modal for @mdo</button> -->
+            <div id="body7">
+              
+                <div id="body7_2">
+
+                    <!-- <div id="body7_1">
+                        <a href=""><h3>Airtime</h3></a>
+                        <a href=""><h3>Utilities</h3></a>
+                        <a href=""><h3>Internet</h3></a>
+                        <a href=""><h3>Bills</h3></a>
+                        <a href=""><h3>Others</h3></a>
+                    </div>
+                    <h1>Airtime Top-Up</h1>
+                    <button onclick="airtime()">Airtime Top-UP Payment 
+                        <span id="Materials2" class="material-symbols-outlined">navigate_next </span>
+                    </button>
+                    <button>Airtime Top-UP Payment 
+                         <span id="Materials2" class="material-symbols-outlined">navigate_next </span>
+                    </button> -->
+                    <div id="body6_1-1">
+                        <div id="howto">
+                         <h1>Airtime Top-Up</h1>
+                        </div>
+                        <div id="body6_2-2">
+                             <div id="each">
+                                 <img src="C:\Users\paxto\OneDrive\Desktop\projectbank\567213_1_l_1_2048x.webp" alt="">
+                             </div>
+                             <div id="each">
+                                 <img src="C:\Users\paxto\OneDrive\Desktop\projectbank\224-020_ImperialGlory.jpg" alt="">
+                             </div>
+                             <div id="each">
+                                 <img src="C:\Users\paxto\OneDrive\Desktop\projectbank\Shepard-DefendDignity.jpg" alt="">
+                             </div>
+                             <div id="each">
+                                 <img src="C:\Users\paxto\OneDrive\Desktop\projectbank\OIP (5).jpeg" alt="">
+                             </div>
+                             <div id="each">
+                                 <img src="C:\Users\paxto\OneDrive\Desktop\projectbank\Fidelity-onb-individual.jpg" alt="">
+                             </div>
+                         
+                        </div>
+                      <div id="body6_3-3">
+                         
+                          <div id="div2">
+                          <main>
+                                 <div onclick="ss(event)" id="b" style="display: flex; align-items: center; gap: 10px;">
+                                     <div style="background-color: rgb(0, 255, 68); width: 30px; height: 30px; border-radius: 50px; align-items: center; justify-content: center; display: flex; ">
+                                        <span class="material-symbols-outlined">call</span>
+                                     </div>
+                                     <button id="frombal" onclick="airtime()" style="background: none; border: none; color: white; ">Buy Airtime</button>
+                                     
+ 
+                                 </div>
+                                 <div id="a">
+                                     <span class="material-symbols-outlined"> arrow_forward </span>
+                                 </div>
+                          </main>
+                          <main>
+                                 <div id="b" style="display: flex; align-items: center; gap: 10px;">
+                                     <div style="background-color: rgb(0, 140, 255); width: 30px; height: 30px; border-radius: 50px; align-items: center; justify-content: center; display: flex; ">
+                                         <span id="Material" class="material-symbols-outlined">credit_card</span>
+                                     </div>
+                                     <button style="background: none; border: none; color: white;">Buy Data</button>
+                                     
+ 
+                                 </div>
+                                 <div id="a">
+                                     <span class="material-symbols-outlined"> arrow_forward </span>
+                                 </div>
+                          </main>
+                          <main>
+                                 <div id="b" style="display: flex; align-items: center; gap: 10px;">
+                                     <div style="background-color: rgb(187, 255, 0); width: 30px; height: 30px; border-radius: 50px; align-items: center; justify-content: center; display: flex; ">
+                                         <span class="material-symbols-outlined">sync_alt </span>                                    </div>
+                                     <button style="background: none; border: none; color: white;"> Pay Bills</button>
+                                     
+ 
+                                 </div>
+                                 <div id="a">
+                                     <span class="material-symbols-outlined"> arrow_forward </span>
+                                 </div>
+                          </main>
+                         
+                        </div>
+                      
+                     </div>
+                    
+                     </div>
+                </div>
+                <div id="airtime1">
+                    <h1>Top-up Airtime</h1>
+                    <div>
+                        <label for="">Select Airtime</label>
+                        <select>
+
+                            <option value="">Select Airtime</option>
+                            <option value="">MTN</option>
+                            <option value="">AIRTEL</option>
+                            <option value="">GLO</option>
+                            <option value="">9mobile</option>
+                        </select>
+                    </div>               
+                   <div>
+                        <label for="">Mobile Number</label>
+                        <input type="number" name="" id="email1" placeholder="+234">
+                     </div>
+                    <div>
+                        <label for="">Amount</label>
+                        <input type="number" name="" id="password" placeholder="N500.00">
+                    </div>
+                    <div style="gap: 10px;">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"   onclick="pay()">Pay</button>
+                        </div>
+                </div>
+        
+
+            </div>
+            <div id="body8">
+                 <div id="body8_1">
+                    <div id="each9">
+                        <div id="div1">
+                            <img src="C:\Users\paxto\OneDrive\Desktop\projectbank\Fidelity-onb-individual.jpg" alt="">
+                            <h1 style="font-weight: 200;" >Hi,<span id="shown1"></span></h1>
+
+                        </div>
+                        <div style="width: 100%; background-color: bluevioet; display: flex; justify-content: center; align-items: start; gap: 20px;" >
+                           <main>
+                              <h3 style="font-size: 15px; font-weight: 100;">Evans Account Number</h3>
+                              <h3  style="font-weight: 400;" id="accnum2">dddd</h3>
+                           </main>
+                            <main>
+                                <h3 style="font-size: 15px; font-weight: 100;">Evans Transaction Pin</h3>
+                                <h3 id="pins" style="font-weight: 400;">fgg</h3>
+                            </main>
+                        </div>
+                    </div>
+                    <div id="each8">
+                        <main>
+                            <h3 >Fulll Name(Username)</h3>
+                            <h3 id="Fulln"></h3>
+                        </main>
+                        <main>
+                            <h3>Email Address</h3>
+                            <h3 id="em"></h3>
+                        </main>
+                        <main>
+                            <h3>Country</h3>
+                            <h3 id="coun"><h3>
+                        </main>
+                    </div>
+                    <div id="each7">
+                        <h1>Generate Bank Card</h1>
+                        <p>Get your personalized evans card</p>
+                    </div>
+                    <div id="each6">
+                       <main data-bs-toggle="modal" data-bs-target="#staticBack" onclick="signout()">
+                        <h3>Log Out <br>
+                            <small style="font-weight: 100; font-size: 15px;">Log out of this account</small>
+                        </h3>
+                            <img src="C:\Users\paxto\OneDrive\Desktop\projectbank\powercharge.png" alt="">
+                       </main>
+                    </div>
+                 </div>
+            </div>
+        </div>
+       
+    </div>
+    <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm your Airtime Payment</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal13">
+            <div id="modal3">
+                
+                   <div>
+                       <p>Total Amount</p>
+                       <p id="card">₦</p>
+                   </div>
+                   <div>
+                       <p>Airtime issuing Fee</p>
+                       <p id="iss">₦0.00</p>
+                   </div>
+                   <div>
+                       <p>From NGN Balance</p>
+                       <p id="airacc">₦</p>
+                      
+                       
+                   </div>
+                   <main>
+                       <h4>Please enter your transaction pin</h4>
+                   </main>
+                   <main>
+                       <input maxlength="1" onkeyup="inp5()" type="text" name="" id="inp">
+                       <input maxlength="1" onkeyup="inp5()" type="text" name="" id="inp2">
+                       <input maxlength="1" onkeyup="inp5()" type="text" name="" id="inp3">
+                       <input maxlength="1" onkeyup="inp5()" type="text" name="" id="inp4">
+                   </main>
+                  
+             </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+          <button type="button" class="btn btn-primary" onclick="confirmcar()" >Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div id="modal">
+    <div  id="modal1">
+        <!-- <div class="modal-body">
+            <h2 class="fs-5">Popover in a modal</h2>
+            <p>This <button class="btn btn-secondary" data-bs-toggle="popover" title="Popover title" data-bs-content="Popover body content is set in this attribute.">button</button> triggers a popover on click.</p>
+            <hr>
+            <h2 class="fs-5">Tooltips in a modal</h2>
+            <p><a href="#" data-bs-toggle="tooltip" title="Tooltip">This link</a> and <a href="#" data-bs-toggle="tooltip" title="Tooltip">that link</a> have tooltips on hover.</p>
+          </div> -->
+        <!-- <div id="modal2">
+            <div id="modal3">
+                     <h2>Confirm your Airtime Payment</h2>
+                        <div>
+                            <p>Total Amount</p>
+                            <p id="card">₦</p>
+                        </div>
+                        <div>
+                            <p>Airtime issuing Fee</p>
+                            <p id="iss">₦0.00</p>
+                        </div>
+                        <div>
+                            <p>From NGN Balance</p>
+                            <p id="airacc">₦</p>
+                           
+                            
+                        </div>
+                        <main>
+                            <h1>Please enter your transaction pin</h1>
+                        </main>
+                        <main>
+                            <input onkeyup="inp5()" type="text" name="" id="inp">
+                            <input onkeyup="inp5()" type="text" name="" id="inp2">
+                            <input onkeyup="inp5()" type="text" name="" id="inp3">
+                            <input onkeyup="inp5()" type="text" name="" id="inp4">
+                        </main>
+                        <main>
+                            <button onclick="cancel()">Cancel</button>
+                            <button onclick="confirmcar()">Confirm</button>
+                       </main>
+                  </div>
+        </div> -->
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="align-items: center; justify-content: center;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modal3">
+        <main style="display: flex; flex-direction: column; display: flex; align-items: center; justify-content: center;">
+            <h4 id="tran">Your are about to transfer</h4>
+            <h4 id="useramt">₦0.00</h4>
+            <h3>to</h3>
+            <h2 id="userna"></h2>
+        </main>
+        <main>
+            <div><span class="material-symbols-outlined">
+                account_balance
+                </span></div>
+             <hr style="width: 200px;">
+            
+            <div><span class="material-symbols-outlined">
+                electric_bolt
+                </span></div>
+        </main>
+        <main>
+            <h4>Please enter your transaction pin</h4>
+        </main>
+        <main style="gap: 5px;">
+            <input maxlength="1" onkeyup="inp6()" type="text" name="" id="inp1">
+            <input maxlength="1" onkeyup="inp6()" type="text" name="" id="inp_2">
+            <input maxlength="1" onkeyup="inp6()" type="text" name="" id="inp_3">
+            <input maxlength="1" onkeyup="inp6()" type="text" name="" id="inp_4">
+
+        </main>
+      
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+            <button type="button" class="btn btn-primary" onclick="confirmtran()">Confirm</button>
+          </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div id="modals">
+    <div  id="modala">
+        <div id="modalo">
+            <div id="modal3">
+                <main style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <h1 id="tran">Your are about to transfer</h1>
+                    <h1 id="">₦500</h1>
+                </main>
+                <main>
+                    <div><span class="material-symbols-outlined">
+                        account_balance
+                        </span></div>
+                     <hr style="width: 200px;">
+                    
+                    <div><span class="material-symbols-outlined">
+                        electric_bolt
+                        </span></div>
+                </main>
+                <main>
+                    <h1>Please enter your transaction pin</h1>
+                </main>
+                <main style="gap: 5px;">
+                    <input onkeyup="inp5()" type="text" name="" id="inp">
+                    <input onkeyup="inp5()" type="text" name="" id="inp2">
+                    <input onkeyup="inp5()" type="text" name="" id="inp3">
+                    <input onkeyup="inp5()" type="text" name="" id="inp4">
+
+                </main>
+                <main></main>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Button trigger modal -->
+
+    
+  
+  <!-- Modal -->
+ <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+ 
+  
+  
+</body>
+</html>
+<script src="Dashboard.js"></script>
+<!-- <script src="Dashborad1.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -1,0 +1,307 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#head{
+    width:100%;
+    height: 80px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.249);
+}
+
+#head1 img{
+    width: 30%;
+    margin: 14px 0 0 0;
+
+
+}
+#head2{
+    width: 50%;
+    background-color: aliceblue;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+#head2_hide{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(12, 133, 239);
+   /* display: none; */
+    padding: 30px;
+    position: absolute;
+    top: -10000%;
+    transition: all 1s ease;
+    
+   
+    #head2_hide1{
+        width: 95%;
+        height: 50vh;
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+       
+
+        div{
+            display: flex;
+            font-size: 25px;
+            justify-content: space-between;
+         
+        }
+        a{
+           text-decoration: none;
+           cursor: pointer;
+           color: black;
+           font-size: 25px;
+            
+          }
+    }
+}
+#head2 button{
+    width: 60px;
+    padding: 6px;
+    border-radius: 30px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+#head2 select{
+    width: 100px;
+    padding: 7px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    
+
+}
+#head button:hover{
+    background-color: white;
+    color: black;
+    transition: all ease 1s;
+}
+#body1{
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    animation: changes 10s infinite;
+   background-image:url(../banking/shutterstock_503064997.jpg);
+}
+@keyframes changes{
+
+    0%{
+        background-image: url(../banking/shutterstock_229092886.jpg);
+    }
+
+    30%{
+        background-image: url(../banking/MSI-Prestige-14-EVO-thin-laptop-001-1200x900.jpg);
+    }
+    
+    60%{
+        background-image:url(../banking/online-banking.jpg);
+       
+    }
+    80%{
+        background-image: url(../banking/shutterstock_503064997.jpg);
+    }
+}
+#body1_1{
+    background-color: red;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+
+ 
+    
+}
+
+#body1_1 h1{
+  font-size: 50px;
+  line-height: 100px;
+
+ 
+    
+}
+#body1_1 p{
+    font-size: 20px;
+    line-height: 50px;
+ 
+    
+}
+#body1_1  button{
+   
+    width: 200px;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+
+ 
+    
+}
+#body1_1 button:hover{
+   background-color: black;
+   cursor: pointer;
+   color: wheat;
+ 
+    
+}
+#body2{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    
+}
+#body2_1{
+    width: 80%;
+    height: 70vh;
+    background-color:aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+   img{
+    width: 100%;
+    height: 450px;
+   }
+    
+}
+#body2_1 div{
+    width: 50%;
+    height: 70vh;
+    h1{
+        font-size: 50px;
+        padding: 30px;
+    }
+    p{
+        font-size: 25px;
+        padding: 30px;
+    }
+}
+#head1_hide.head2_hide:focus-within{
+    display: block;
+}
+#button4{
+    display: none;
+}
+#body3{
+    width:100%;
+    height: 100vh;
+    display: flex;
+    margin: 10px auto;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    #each{
+        width: 500px;
+        height: 300px;
+        background-color: aqua;
+        border-radius: 20px;
+        div{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            margin: 50px 0 0 30px;
+            img{
+                width: 100px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 850px) {
+#head{
+ 
+    width: 100%;
+    h3{
+        display: none;
+    }
+    img{
+        width: 60%;
+    }
+    
+  
+    
+}
+#button3{
+    display: none;
+}
+#button4{
+    display: block;
+}
+
+#head2_hide{
+    width: 90%;
+    background-color: yellowgreen;
+    justify-content: space-between;
+    margin: 82px 0 0 0;
+}
+#body1{
+    width: 100%;
+    height: 100vh;
+
+}
+}
+@media (max-width: 780px) {
+   #body2{
+    width: 100%;
+    height: 110vh;
+   }
+    #body2_1{
+        width: 90%;
+        height: 95vh;
+        div{
+            width: 100%;
+            height: 300px;
+           
+            justify-content: ''space-around;
+            h1{
+                font-size: 25px;
+              
+            }
+            p{
+                font-size: 25px;
+            }
+        }
+
+    }
+    #body1_1{
+       
+       margin: auto;
+    }
+    #body3{
+        width: 100%;
+        background-color: aliceblue;
+        #each{
+            width: 90%;
+        }
+    }
+    
+}
