@@ -96,24 +96,24 @@
     width: 100%;
     height: 100vh;
     animation: changes 10s infinite;
-   background-image:url(../banking/shutterstock_503064997.jpg);
+   background-image:url(BMH-quickbooks.jpg);
 }
 @keyframes changes{
 
     0%{
-        background-image: url(../banking/shutterstock_229092886.jpg);
+        background-image: url(BMH-quickbooks.jpg);
     }
 
     30%{
-        background-image: url(../banking/MSI-Prestige-14-EVO-thin-laptop-001-1200x900.jpg);
+        background-image: url(R.jpeg);
     }
     
     60%{
-        background-image:url(../banking/online-banking.jpg);
+        background-image:url(shutterstock_503064997.jpg);
        
     }
     80%{
-        background-image: url(../banking/shutterstock_503064997.jpg);
+        background-image: url(shutterstock_229092886.jpg);
     }
 }
 #body1_1{
