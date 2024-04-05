@@ -320,7 +320,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    padding-top: 100px;
    
    
 }
@@ -333,8 +334,9 @@
     justify-content: center;
     gap: 10px;
     flex-wrap:wrap ;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     gap: 60px;
+
     flex-wrap: wrap;   
 }
 
@@ -694,7 +696,7 @@
     width: 100%;
     height: 100vh;
     
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -931,7 +933,8 @@
 }
 #modal13{
     width: 100%;
-    height: 70%;
+    height: 80%;
+    background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -993,7 +996,7 @@
     flex-direction: column;
    align-items: center;
    justify-content: center;
-    gap: 20px;
+    gap: 22px;
     
     main{
         display: flex;
@@ -1076,7 +1079,7 @@
     }
     #body4_2{
         width: 100%;
-        /* background-color: aqua; */
+        background-color: aqua;
     }
    
     #contain1{
@@ -1090,6 +1093,7 @@
     }
     #body5{
         width: 100%;
+        /* height: 150% */
        
     }
     #show{
@@ -1129,13 +1133,13 @@
     #body5{
         width: 100%;
         /* background-color: aquamarine; */
-        height: 200vh;
+        /* height: 932px; */
     }
        #body5_1{
         width: 100%;
-        height: 80vh;
+        /* height: 80vh; */
       
-      padding-bottom:28cm;
+      /* padding-bottom:28cm; */
         
        }
        #body8_1{
@@ -1259,7 +1263,7 @@
 
     }
     #modal3{
-        width: 80%;
+        width: 100%;
     }
     #modal2{
         width: 85%;
@@ -1271,23 +1275,27 @@
     #body5{
         width: 100%;
        height: 150%;
+     
+      
        
     }
      #body5_1{
         width: 100%;
+        /* background-color: red; */
+        
       
        
        }
        #body2_1{
         width: 90%;
-        background-color: red;
+        /* background-color: red; */
 
        }
 }
 @media (max-width:375px) {
     #body5{
         width: 100%;
-       height: 190%;
+       height: 150vh;
        
     }
      #body5_1{

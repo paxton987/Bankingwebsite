@@ -30,6 +30,7 @@ let showimg3=document.getElementById("showimg3")
 // let discription=document.getElementById("discription")
 let iss=document.getElementById("airtime1")
 let modal=document.getElementById("modal")
+let selnet=document.getElementById("selnet")
 let username1=document.getElementById("username1")
 let body7_2=document.getElementById("body7_2")
 let inp=document.getElementById("inp")
@@ -453,6 +454,16 @@ function confirmtran() {
                                     amount: currentuserbal - transferamt
                                    
                                 })
+                                then(() => {
+                                  db.collection("User").doc(currentUser.email)
+                                  .onSnapshot((doc) => {
+                                  numberss.innerHTML=doc.data().amount
+                                  });
+                                 
+                                  
+                                  alert("Transfer successful")
+                                 
+                              })
                              
                                 
                                 .then(() => {
@@ -500,9 +511,74 @@ function confirmtran() {
     
     sendertran()
     receivertran()
-    hi()
+
    
 }
+function confirmcar() {
+  firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+          var uid = user.uid;
+          var docRef = db.collection("User").doc(user.email);
+
+          docRef.get().then((doc) => {
+            const newUserbal = doc.data().amount-password.value;
+            console.log(newUserbal)
+        if (doc.exists) {
+          var docRef = db.collection("User").doc(user.email);
+
+              // Set the "capital" field of the city 'DC'
+              let splitpin = doc.data().pin.split("")
+              if (inp.value == ""&& inp2.value =="" && inp3.value=="" && inp.value == "") {
+                     alert( "Please enter pin")
+              }else{
+                if (inp.value == splitpin[0] && inp2.value == splitpin[1] && inp3.value== splitpin[2] && inp4.value==splitpin[3]){
+                  if (password.value > doc.data().amount) {
+                        alert("Insufficent Fund")
+                  }else{
+                    return docRef.update({
+                      amount:newUserbal
+                  })
+                  .then(() => {
+                      console.log("Document successfully updated!");
+                     
+                      
+                  })
+                  .then(() => {
+                    db.collection("User").doc(user.email)
+                    .onSnapshot((doc) => {
+                    numberss.innerHTML=doc.data().amount
+                    alert('Transaction Successful!')
+                    });
+                   })
+                  .catch((error) => {
+                      // The document probably doesn't exist.
+                      console.error("Error updating document: ", error);
+                  });
+                  }
+                 
+              console.log("Document data:", doc.data());
+                }else{
+                  alert("Incorrect pin")
+                }
+              }
+            
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+          }).catch((error) => {
+              console.log("Error getting document:", error);
+          });
+          
+        } else {
+          
+        }
+      });
+      
+      airtimetran()
+}
+
+
 
 function signout() {
 
@@ -518,6 +594,26 @@ firebase.auth().signOut().then(() => {
     
       
 }
+function airtimetran() {
+  let users =firebase.auth().currentUser;
+  db.collection(users.email).add({
+    name:"You",
+    Amount:password.value,
+    Date: new Date(),
+    category:"Airtime",
+     type:"Debit",
+     Network:selnet.value,
+})
+.then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+})
+.catch((error) => {
+    console.error("Error adding document: ", error);
+});
+  
+}
+
+airtimetran()
 function nouser() {
     loder.style.display=
     'none';
@@ -539,33 +635,8 @@ function nouser() {
       });
      
 }
-function hi() {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/v8/firebase.User
-          var uid = user.uid;
-          then(() => {
-            db.collection("User").doc(currentUser.email)
-            .onSnapshot((doc) => {
-            numberss.innerHTML=doc.data().amount
-            });
-           
-            
-            alert("Transfer successful")
-           
-        })
-          // ...
-        } else {
-          // User is signed out
-          // ...
-          console.log("error");
-        }
-      });
-        
-    
-}
-     hi()
+
+     
 nouser()
 function sendertran() {
     let users =firebase.auth().currentUser;
