@@ -547,8 +547,8 @@ function confirmcar() {
                     db.collection("User").doc(user.email)
                     .onSnapshot((doc) => {
                     numberss.innerHTML=doc.data().amount
-                    alert('Transaction Successful!')
                     });
+                    alert('Transaction Successful!')
                    })
                   .catch((error) => {
                       // The document probably doesn't exist.

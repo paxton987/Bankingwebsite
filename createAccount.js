@@ -127,9 +127,14 @@ db.collection("User").doc(user.email).set({
   console.log("Document successfully written!");
   alert("Regitration successfulluy")
     console.log(userCredential);
-    window.location.href="createAccount.html"
+   
    
 })
+firebase.auth().currentUser.sendEmailVerification()
+  .then(() => {
+   console.log("Email sent.");
+   window.location.href="createAccount.html"
+  })
 .catch((error) => {
   console.error("Error writing document: ", error);
  
