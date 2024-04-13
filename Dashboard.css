@@ -444,15 +444,16 @@
     width: 45%;
     height: 250px;
     border-radius: 10px;
-    background-color: aqua;
+    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    box-shadow: 2px 1px 2px 1px rgba(0, 0, 0, 0.305);
     align-items: center;
     main{
         width: 95%;
         height: 230px;
-        background-color: rgb(128, 21, 222);
+        background-color:  rgb(9, 228, 42);
         display: flex;
         flex-direction:column;
         justify-content: space-between;
@@ -460,6 +461,7 @@
     
     }
 }
+
 #each5{
     width: 45%;
     height: 270px;
@@ -934,7 +936,7 @@
 #modal13{
     width: 100%;
     height: 80%;
-    background-color: red;
+    /* background-color: red; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -990,18 +992,18 @@
 }
 #modal3{
     width: 100%;
-    height: 80%;
+    /* height: 90%; */
     /* background-color: red; */
     display: flex;
     flex-direction: column;
    align-items: center;
-   justify-content: center;
-    gap: 22px;
+    margin: 10px auto;
+    gap: 10px;
     
     main{
         display: flex;
-        /* width: 70%; */
-        height: 50px;
+        width: 100%;
+        /* height: 50px; */
         justify-content: center;
         flex-direction: row;
         align-items: center;
@@ -1025,7 +1027,7 @@
             border-radius: 10px;
             color: white;
             font-size: 20px;
-            background-color: rgba(255, 0, 0, 0.875);
+            /* background-color: rgba(255, 0, 0, 0.875); */
         }
  
     }
@@ -1079,7 +1081,7 @@
     }
     #body4_2{
         width: 100%;
-        background-color: aqua;
+        /* background-color: aqua; */
     }
    
     #contain1{

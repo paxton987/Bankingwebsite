@@ -5,7 +5,7 @@
 #body{
     background-image: url(bg.png);
     width: 100%;
-    height: 160vh;
+    height: 150vh;
     background-position: center;
     background-size: cover;
     display: flex;
@@ -30,11 +30,12 @@
 #body3{
     
     width: 90%;
-    height: 100vh; display: flex;
+    height: 110vh; display: flex;
     flex-direction: column;
+    /* background-color: red; */
     gap: 30px;
 
-    margin: 0 0 50px 0;
+    /* margin: 0 0 50px 0; */
   
     div{    
         display: flex;
@@ -147,41 +148,61 @@
     #body1{
         width: 90%;
         /* height: 120vh; */
-        background-color: red;
+        /* background-color: red; */
     }
-    #body13{
-        width: 90%;
-        height: 30vh;
-    }
+   
 }
 @media (max-width: 430px) {
     #body{
         width: 100%;
-        /* height: 100vh; */
+        height: 100vh;
         /* background-color: red; */
       
     }
+    #body1{
+        height: 90%;
+    }
+    #body3{
+        height: 90%;
+    }
+}
     @media (max-width:414px) {
         #body{
             width: 100%;
-            height: 140vh;
+            height: 120vh;
             /* background-color: red; */
           
         }
         #body1{
-            background-color: red;
+            /* background-color: red; */
             width: 90%;
-            height: 80%;
+            height:105vh;
+            /* height: 80%; */
             /* height: 200%; */
             /* background-color:red; */
         }
-        #body13{
+        #body3{
             width: 90%;
-            height: 30vh;
+            height: 95vh;
         }
+        
+       
         
     }
 
+
+@media (max-width:375px) {
+    #body{
+        width: 100%;
+        height: 140vh;
+        /* background-color: red; */
+      
+    }
+    #body1{
+        width: 90%;
+        height: 90%;
+        /* background-color:red; */
+    }
 }
 @media (max-width:375px) {
     #body{
@@ -192,7 +213,24 @@
     }
     #body1{
         width: 90%;
-        /* height: 200%; */
+        height: 90%;
         /* background-color:red; */
+    }
+}
+@media (max-width:320px) {
+    #body{
+        width: 100%;
+        height: 190vh;
+        /* background-color: red; */
+      
+    }
+    #body1{
+        width: 96%;
+        height: 90%;
+        /* background-color:red; */
+    }
+    #body3{
+        height: 90%;
+        width: 95%;
     }
 }

@@ -16,6 +16,25 @@ const firebaseConfig = {
   {/* </script> */}
   
 
+  showimg.innerHTML+=`<div style="display:flex;gap:10px; align-items:center;">
+  <div style="background-color: rgb(187, 255, 0); width${doc.data().name}: 35px; height: 27px; border-radius: 50px; align-items: center; justify-content: center; display: flex; "><span class="material-symbols-outlined">sync_alt </span>                                    </div>
+  <h6 style="font-weight: 400;"></h6></div>
+
+  </div>
+
+ `
+  showimg1.innerHTML+=`
+  <h6 style="margin:13px auto;  font-weight: 400;">${doc.data().type}</h6></div>
+
+
+
+ `
+  showimg2.innerHTML+=`
+  <h6 style="margin:13px auto; font-weight: 400;">${doc.data().j}</h6></div>
+`
+ showimg3.innerHTML+=`${doc.data().type!="Credit"? `<div style='background-color:red; margin:11px auto; border-radius:4px; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">−</p><h5>${doc.data().Amount}</h5></div>`  : `<div style='background-color:RGB(5 250 30); border-radius:4px; margin:11px auto; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">+</p><h5>${doc.data().Amount}</h5></div>`}`
+
+
         
     
     

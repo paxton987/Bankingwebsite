@@ -6,9 +6,14 @@ let body6=document.getElementById("body6")
 let card=document.getElementById("card")
 let contain1=document.getElementById("contain")
 let showa=document.getElementById("showa")
+let aacn1=document.getElementById("aacn1")
 let Fulln=document.getElementById("fulln")
 let em=document.getElementById("em")
+let acc1=document.getElementById("acc1")
+let accn1=document.getElementById("accn1")
+let naration1=document.getElementById("naration1")
 let coun=document.getElementById("coun")
+let ssss1=document.getElementById("ssss1")
 let pins=document.getElementById("pins")
 let accnum2=document.getElementById("accnum2")
 let shown1=document.getElementById("shown1")
@@ -30,6 +35,10 @@ let showimg3=document.getElementById("showimg3")
 // let discription=document.getElementById("discription")
 let iss=document.getElementById("airtime1")
 let modal=document.getElementById("modal")
+let modal31=document.getElementById("modal31")
+let modal3_1=document.getElementById("modal3_1")
+let modal3_2=document.getElementById("modal3_2")
+let modal3_3=document.getElementById("modal3_3")
 let selnet=document.getElementById("selnet")
 let username1=document.getElementById("username1")
 let body7_2=document.getElementById("body7_2")
@@ -168,27 +177,24 @@ function showd() {
           var uid = user.uid;
           let userss = firebase.auth().currentUser
           db.collection(userss.email).get().then((querySnapshot) => {
-          
-                  querySnapshot.forEach((doc) => {
+                  showimg.innerHTML+=""
+                  querySnapshot.forEach((doc, index) => {
+                    showimg.innerHTML +=`<div class=" d-flex" style="justify-content: space-between; width:100%; align-items:center;">
+                    <div style="display:flex; gap:5px;  align-items: center;">
+                      <img style="width:40px;height:40px ; border-radius:30px;" ${doc.data().airtime!=true ?"src=vector-people-user-icon.jpg" :"src=MTN-Nigeria-Airtel-Globacom-and-9mobile_copy_448x336.jpg" }   alt=""/>
+                      <h6>${doc.data().name}</h6>
+                     
+                    </div>
+                    <div>${doc.data().type}</div>
+                    <div>${doc.data().Date/3600*60}</div>
+                    <div>
+                       ${doc.data().type!="Credit"? `<div style='background-color:red; margin:11px auto; border-radius:4px; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">−</p><h5>${doc.data().Amount}</h5></div>`  : `<div style='background-color:RGB(5 250 30); border-radius:4px; margin:11px auto; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">+</p><h5>${doc.data().Amount}</h5></div>`}
+                    </div>
+                    </div>
                     
-                      showimg.innerHTML+=`<div style="display:flex;gap:10px; align-items:center;">
-                      <div style="background-color: rgb(187, 255, 0); width: 35px; height: 27px; border-radius: 50px; align-items: center; justify-content: center; display: flex; "><span class="material-symbols-outlined">sync_alt </span>                                    </div>
-                      <h6 style="font-weight: 400;">${doc.data().name}</h6></div>
-
-                      </div>
-                    
-                     `
-                      showimg1.innerHTML+=`
-                      <h6 style="margin:13px auto;  font-weight: 400;">${doc.data().type}</h6></div>
-
-                    
-                    
-                     `
-                      showimg2.innerHTML+=`
-                      <h6 style="margin:13px auto; font-weight: 400;">${doc.data().j}</h6></div>
- `
-                     showimg3.innerHTML+=`${doc.data().type!="Credit"? `<div style='background-color:red; margin:11px auto; border-radius:4px; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">−</p><h5>${doc.data().Amount}</h5></div>`  : `<div style='background-color:RGB(5 250 30); border-radius:4px; margin:11px auto; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">+</p><h5>${doc.data().Amount}</h5></div>`}`
-                    
+                   
+                    `
+                     
                       // doc.data() is never undefined for query doc snapshots
                       console.log(doc.id, " => ", doc.data());
                       let date = (doc.id, " => ", doc.data().Date)
@@ -267,13 +273,16 @@ foundreceiver()
    }, 10);
     
  }
- function pay() {
+ function pay(ev) {
+  ev.preventDefault()
     let showamout=password.value
     if (password.value=="" || email1.value=="" ) {
         alert("input field cannot be empty")  
      
     }else{
         card.innerHTML=showamout
+       
+      
      
  }
    
@@ -281,11 +290,15 @@ foundreceiver()
  function transfer(ev) {
     ev.preventDefault()
     let showamout1 = ssss.value
+    let showamout = ssss.value
+    let discription2 = disc2.value
     if (ssss.value=="" || useracc.value=="") {
         alert('enter details')
 
     }else {
         useramt.innerHTML=showamout1
+        ssss1.innerHTML=showamout
+        naration1.innerHTML=discription2
        
     }
    
@@ -340,6 +353,9 @@ const userslist=[]
             username1.value = foundUser.Username;
             console.log(`${foundUser.amount}`);
             userna.innerHTML=`${foundUser.Username}`
+            acc1.innerHTML=`${foundUser.account}`
+            aacn1.innerHTML=`${foundUser.Username}`
+            
            
        
         } else {
@@ -363,7 +379,14 @@ function showacc() {
     foundreceiver()
 }
 
-function confirmtran() {
+function confirmtran(params) {
+    params.target.innerHTML= `
+    <div class="  text-light "  disabled>
+    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+    <span role="status"  style="border:none; background:none;">Loading...</span>
+  </div>
+  `
+  
     // firebase.auth().onAuthStateChanged((currentUser) => {
     //     if (currentUser) {
     //       // User is signed in, see docs for a list of available properties
@@ -437,7 +460,16 @@ function confirmtran() {
             console.log(foundUser);
             currentuserdocref.get().then(sender => {
                 if (sender.exists) {
-                    let splitpin = sender.data().pin.split("")
+                    if (foundUser==null) {
+                      alert("User Not Found")
+                      params.target.innerHTML=`Confirm`
+                      
+                    }else{
+                      if (inp1.value == ""&& inp_2.value =="" && inp_3.value=="" && inp_4.value == "" ) {
+                           alert("Enter your pin!")
+                           params.target.innerHTML=`Confirm`
+                      }else{
+                      let splitpin = sender.data().pin.split("")
                     if (inp1.value == splitpin[0] && inp_2.value == splitpin[1] && inp_3.value== splitpin[2] && inp_4.value==splitpin[3]) {
                         const currentuserbal = sender.data().amount;
                         console.log(currentuserbal);
@@ -446,6 +478,7 @@ function confirmtran() {
                         const receiverbalance =  foundUser.amount
                         if (transferamt > currentuserbal) {
                            alert("not enogh")
+                           params.target.innerHTML=`Confirm`
 
                         }else{
                            
@@ -454,16 +487,14 @@ function confirmtran() {
                                     amount: currentuserbal - transferamt
                                    
                                 })
-                                then(() => {
+                                .then(() => {
                                   db.collection("User").doc(currentUser.email)
                                   .onSnapshot((doc) => {
                                   numberss.innerHTML=doc.data().amount
                                   });
+
                                  
-                                  
-                                  alert("Transfer successful")
-                                 
-                              })
+                                 })
                              
                                 
                                 .then(() => {
@@ -478,24 +509,30 @@ function confirmtran() {
                                           receiverdocref.update({
                                             amount:  Number(receiverbal) + Number(transferamt)
                                           })
-                                          
-                                         
-                                        .catch((error) => {
+                                       .catch((error) => {
                                             console.error("Error writing document: ", error);
                                         });
                                           
         
                                     })
                                 }
-                                    console.log("Current user's balance updated")
+                                    console.log("Current user's balance update")
+                                    modal31.style.display="none"
+                                      modal3_1.style.display="flex"
+                                      modal31.style.display="none"
+                                 
+                                  
                                     ;})  
                                     
                            
                         }                     
                      }else{
+                      params.target.innerHTML=`Confirm`
                         alert("incprrect pin")
+                       
                      }
-                   
+                    }
+                  }
                        
                     
                 } else {
@@ -503,6 +540,7 @@ function confirmtran() {
                 }
             }).catch(error => {
                 console.error("Error getting document:", error);
+                params.target.innerHTML="Confirm"
             });
         } else {
             console.log("No user found");
@@ -515,6 +553,7 @@ function confirmtran() {
    
 }
 function confirmcar() {
+ 
   firebase.auth().onAuthStateChanged((user) => {
       if (user) {
           var uid = user.uid;
@@ -528,7 +567,7 @@ function confirmcar() {
 
               // Set the "capital" field of the city 'DC'
               let splitpin = doc.data().pin.split("")
-              if (inp.value == ""&& inp2.value =="" && inp3.value=="" && inp.value == "") {
+              if (inp.value == "" || inp2.value =="" || inp3.value=="" || inp.value == "") {
                      alert( "Please enter pin")
               }else{
                 if (inp.value == splitpin[0] && inp2.value == splitpin[1] && inp3.value== splitpin[2] && inp4.value==splitpin[3]){
@@ -549,6 +588,7 @@ function confirmcar() {
                     numberss.innerHTML=doc.data().amount
                     });
                     alert('Transaction Successful!')
+                    airtimetran()
                    })
                   .catch((error) => {
                       // The document probably doesn't exist.
@@ -574,8 +614,9 @@ function confirmcar() {
           
         }
       });
+     
       
-      airtimetran()
+      
 }
 
 
@@ -600,6 +641,7 @@ function airtimetran() {
     name:"You",
     Amount:password.value,
     Date: new Date(),
+    airtime:true,
     category:"Airtime",
      type:"Debit",
      Network:selnet.value,
@@ -647,7 +689,7 @@ function sendertran() {
 db.collection(users.email).add({
     name:foundUser.Username,
     Amount:ssss.value,
-    Date: datte,
+    Date: datte.getHours(),
     category:"Transfer",
      type:"Debit",
      airtime:false
@@ -683,3 +725,22 @@ db.collection(foundUser.email).add({
 }
 receivertran()
 
+function getrep(params) {
+  params.target.innerHTML= `
+  <div class="  text-light "  disabled>
+  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+  <span role="status"  style="border:none; background:none;">Please wait...</span>
+</div>
+`
+   setTimeout(() => {
+    
+    
+  modal3_3.style.display="flex"
+   modal3_1.style.display="none"
+   }, 2000);
+  console.log("jhgv");
+ 
+   
+
+
+}
