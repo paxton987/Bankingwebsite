@@ -1052,16 +1052,23 @@
     
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
-    table, thead, tr, td, tbody{
-       /* margin-top: 80px; */
-        border:  1px solid black;
-        padding: 8px;
-        /* width: 900px; */
-}
+    align-items: center;
+   
 
    
 
+}
+#body9_1{
+    width: 90%;
+    height: 80vh;
+    /* background-color: red; */
+     table{
+        width: 100%;
+    }
+    tr, td{
+        border: 1px solid black;
+        padding: 8px;
+    }
 }
 
 
@@ -1147,6 +1154,19 @@
     #body3_8{
         display: block;
     }
+    #body9{
+        width: 100%;
+        height: 100%;
+       
+    }
+    #body9_1{
+        width: 100%;
+        height: 50vh;
+        /* background-color: red; */
+      
+    }
+    
+  
     #airtimi1{
         width: 100%;
         /* background-color: aqua; */
