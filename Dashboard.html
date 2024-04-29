@@ -27,7 +27,7 @@
   }
 </style>
 <body>
-  <div id="loder"   style="width: 100%; height: 100vh;  background-color: rgba(0, 0, 0, 0.61); display: flex; flex-direction: column; justify-content: center; align-items: center;  gap: 20px;  top: 0;
+  <div id="loder"   style="width: 100%; height: 100vh;  background-color: rgba(0, 0, 0, 0.61); display: none; flex-direction: column; justify-content: center; align-items: center;  gap: 20px;  top: 0;
   z-index: 2;
   left: 0; position: fixed;">
    
@@ -86,7 +86,7 @@
                         </main>
                      </div>
                      <div>
-                        <main id="main1">
+                        <main onclick="transactionH()" id="main1">
                             <span id="Material" class="material-symbols-outlined"> account_balance</span>
                             <button>Transaction History</button>
                         </main>
@@ -127,9 +127,9 @@
                         </main>
                      </div>
                      <div>
-                        <main id="main1">
+                        <main onclick="profile()" id="main1">
                             <span id="Material" class="material-symbols-outlined">account_circle</span>              
-                            <button>Debit card</button>
+                            <button>Profile</button>
                         </main>
                         <main id="main2">
                             <span id="Materials1" class="material-symbols-outlined">navigate_next </span>
@@ -165,7 +165,7 @@
                        <img style="width: 25px; height: 27px;" src="Screenshot_30-3-2024_101647_fontawesome.com-removebg-preview.png" alt="">
                 </div> 
                     
-                    <div onclick="transferpage()" id="body3_3">
+                    <div onclick="profile()" id="body3_3">
                           <img style="width: 40px; border-radius: 20px;" src="Fidelity-onb-individual.jpg" alt="">
                     </div> 
                    
@@ -509,6 +509,27 @@
                     </div>
                  </div>
             </div>
+            <div id="body9">
+                 
+                    <table>
+                        <thead>
+                            <tr>
+                               
+                                <td>Name</td>
+                                <td>TYpe</td>
+                                <td>Date</td>
+                                <td>Category</td>
+                                <td>Amount</td>
+                               
+                               
+                            </tr>
+                        </thead>
+                        <tbody id="distrans2">
+                          
+                        </tbody>
+                    </table>    
+                 
+             </div>
         </div>
        
     </div>

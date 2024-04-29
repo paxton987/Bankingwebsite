@@ -16,14 +16,14 @@ let gennumber=''
 let display1=document.getElementById("display")
 let inputtypecheck=document.getElementById("inputtypecheck")
 const firebaseConfig = {
-    apiKey: "AIzaSyAO_m6vRNiwfNd-XqUbv9uK4wZLfQoCi0I",
-    authDomain: "banking-site-29d8c.firebaseapp.com",
-    projectId: "banking-site-29d8c",
-    storageBucket: "banking-site-29d8c.appspot.com",
-    messagingSenderId: "118289454467",
-    appId: "1:118289454467:web:6dcadb75544c19e9b952b6",
-    measurementId: "G-5ZH04HTLHC"
-  };
+  apiKey: "AIzaSyDTcwI1pvJj_TttUp3mHIusrx_BQ-li8sk",
+  authDomain: "fir-class-b1b49.firebaseapp.com",
+  projectId: "fir-class-b1b49",
+  storageBucket: "fir-class-b1b49.appspot.com",
+  messagingSenderId: "62453974277",
+  appId: "1:62453974277:web:6718ce5587223f02fa236c"
+};
+
   
   // Initialize Firebase
   const app =firebase.initializeApp(firebaseConfig);
@@ -125,14 +125,17 @@ db.collection("User").doc(user.email).set({
 })
 .then(() => {
   console.log("Document successfully written!");
-  alert("Regitration successfulluy")
+  
     console.log(userCredential);
    
    
 })
+
+    
 firebase.auth().currentUser.sendEmailVerification()
   .then(() => {
    console.log("Email sent.");
+   alert("Regitration successfulluy")
    window.location.href="createAccount.html"
   })
 .catch((error) => {
@@ -140,7 +143,6 @@ firebase.auth().currentUser.sendEmailVerification()
  
 });
     // ...
-    
 
    
   })

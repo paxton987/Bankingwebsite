@@ -3,8 +3,10 @@ let body5=document.getElementById("body5")
 let email1=document.getElementById("email1")
 let password1=document.getElementById("password1")
 let body6=document.getElementById("body6")
+let body8=document.getElementById("body8")
 let card=document.getElementById("card")
 let contain1=document.getElementById("contain")
+let distrans2=document.getElementById("distrans2")
 let showa=document.getElementById("showa")
 let aacn1=document.getElementById("aacn1")
 let Fulln=document.getElementById("fulln")
@@ -65,14 +67,14 @@ let category=document.getElementById("category")
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAO_m6vRNiwfNd-XqUbv9uK4wZLfQoCi0I",
-    authDomain: "banking-site-29d8c.firebaseapp.com",
-    projectId: "banking-site-29d8c",
-    storageBucket: "banking-site-29d8c.appspot.com",
-    messagingSenderId: "118289454467",
-    appId: "1:118289454467:web:6dcadb75544c19e9b952b6",
-    measurementId: "G-5ZH04HTLHC"
-  };
+  apiKey: "AIzaSyDTcwI1pvJj_TttUp3mHIusrx_BQ-li8sk",
+  authDomain: "fir-class-b1b49.firebaseapp.com",
+  projectId: "fir-class-b1b49",
+  storageBucket: "fir-class-b1b49.appspot.com",
+  messagingSenderId: "62453974277",
+  appId: "1:62453974277:web:6718ce5587223f02fa236c"
+};
+
   
   // Initialize Firebase
   const app =firebase.initializeApp(firebaseConfig);
@@ -106,6 +108,7 @@ function home() {
     body5.style.display="flex"
     body6.style.display="none"
     body7.style.display="none"
+    body8.style.display="none"
 
     contain1.style.left="-200%"
    
@@ -114,6 +117,17 @@ function airtime9() {
     body5.style.display="none"
     body6.style.display="none"
     body7.style.display="flex"
+    body8.style.display="none"
+
+
+    contain1.style.left="-200%"
+   
+}
+function profile() {
+    body5.style.display="none"
+    body6.style.display="none"
+    body7.style.display="none"
+    body8.style.display="flex"
 
     contain1.style.left="-200%"
    
@@ -132,13 +146,13 @@ function eyes() {
 function showd() {
     firebase.auth().onAuthStateChanged((User) => {
         if (User) {
-        
-          var uid = User.uid;
+           var uid = User.uid;
           const db = firebase.firestore();
          var docRef = db.collection("User").doc(User.email);
          
             docRef.get().then((doc) => {
           if (doc.exists) {
+            
             newUser=doc.data()
             //   localStorage.setItem("savedat", JSON.stringify(doc.data()));
               display1.innerHTML=`${doc.data().account}`
@@ -170,70 +184,8 @@ function showd() {
         }
       });
              
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/v8/firebase.User
-          var uid = user.uid;
-          let userss = firebase.auth().currentUser
-          db.collection(userss.email).get().then((querySnapshot) => {
-                  showimg.innerHTML+=""
-                  querySnapshot.forEach((doc, index) => {
-                    showimg.innerHTML +=`<div class=" d-flex" style="justify-content: space-between; width:100%; align-items:center;">
-                    <div style="display:flex; gap:5px;  align-items: center;">
-                      <img style="width:40px;height:40px ; border-radius:30px;" ${doc.data().airtime!=true ?"src=vector-people-user-icon.jpg" :"src=MTN-Nigeria-Airtel-Globacom-and-9mobile_copy_448x336.jpg" }   alt=""/>
-                      <h6>${doc.data().name}</h6>
-                     
-                    </div>
-                    <div>${doc.data().type}</div>
-                    <div>${doc.data().Date/3600*60}</div>
-                    <div>
-                       ${doc.data().type!="Credit"? `<div style='background-color:red; margin:11px auto; border-radius:4px; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">−</p><h5>${doc.data().Amount}</h5></div>`  : `<div style='background-color:RGB(5 250 30); border-radius:4px; margin:11px auto; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">+</p><h5>${doc.data().Amount}</h5></div>`}
-                    </div>
-                    </div>
-                    
-                   
-                    `
-                     
-                      // doc.data() is never undefined for query doc snapshots
-                      console.log(doc.id, " => ", doc.data());
-                      let date = (doc.id, " => ", doc.data().Date)
-                  });
-            
-             
-          });
-          // ...
-        } else {
-          // User is signed out
-          // ...
-        }
-      });
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/v8/firebase.User
-          var uid = user.uid;
-          db.collection(foundUser.email).get().then((querySnapshot) => {
-            
-                  querySnapshot.forEach((doc) => {
-                    showimg.innerHTML+=`
-                    <div style="background-color: rgb(187, 255, 0); width: 30px; height: 20px; border-radius: 50px; align-items: center; justify-content: center; display: flex; "><span class="material-symbols-outlined">sync_alt </span>                                    </div>
-                    <h1>${doc.data().name }</h1>
-                   
-                    `
-                     
-                      // doc.data() is never undefined for query doc snapshots
-                      console.log(doc.id, " => ", doc.data());
-                  });
-            
-             
-          });
-          // ...
-        } else {
-          // User is signed out
-          // ...
-        }
-      });
+   
+    
 
    
  
@@ -365,6 +317,24 @@ const userslist=[]
 
         }
     });
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/v8/firebase.User
+        var uid = user.uid;
+
+        console.log("user");
+       
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        // alert("Please log in first! before you can coutinue");
+        // window.location.href="login.html"
+        // console.log("no user");
+      }
+    });
+   
 }
 
 foundreceiver()
@@ -614,10 +584,73 @@ function confirmcar() {
           
         }
       });
+
      
       
       
 }
+function displaytrans() {
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/v8/firebase.User
+      var uid = user.uid;
+      
+      let userss = firebase.auth().currentUser
+      db.collection(userss.email)
+      .orderBy("Date",  "desc")
+      .get()
+      .then((querySnapshot) => {
+       
+             showimg.innerHTML+=""
+              querySnapshot.forEach((doc, index) => {
+                showimg.innerHTML +=`<div class=" d-flex" style="justify-content: space-between; width:100%; align-items:center;">
+                <div style="display:flex; gap:5px;  align-items: center;">
+                  <img style="width:40px;height:40px ; border-radius:30px;" ${doc.data().airtime!=true ?"src=vector-people-user-icon.jpg" :"src=MTN-Nigeria-Airtel-Globacom-and-9mobile_copy_448x336.jpg" }   alt=""/>
+                  <h6>${doc.data().name}</h6>
+                 
+                </div>
+                <div>${doc.data().type}</div>
+                <div>${doc.data().Date.seconds /100000}</div>
+                <div>
+                   ${doc.data().type!="Credit"? `<div style='background-color:red; margin:11px auto; border-radius:4px; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">−</p><h5>${doc.data().Amount}</h5></div>`  : `<div style='background-color:RGB(5 250 30); border-radius:4px; margin:11px auto; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">+</p><h5>${doc.data().Amount}</h5></div>`}
+                </div>
+                </div>
+                
+               
+                `
+                distrans2.innerHTML+=`<td class=" d-flex" style="justify-content: space-between; border:none;  align-items:center;">
+                <div style="display:flex; gap:5px;  align-items: center; border:none;">
+                  <img style="width:40px;height:40px ; border-radius:30px;" ${doc.data().airtime!=true ?"src=vector-people-user-icon.jpg" :"src=MTN-Nigeria-Airtel-Globacom-and-9mobile_copy_448x336.jpg" }   alt=""/>
+                  <h6>${doc.data().name}</h6>
+                  </div>
+                 
+                </td>
+                <td>${doc.data().type}</td>
+                <td>${doc.data().Date.seconds /100000}</td>
+                <td>${doc.data().category}</td>
+                <td>
+                   ${doc.data().type!="Credit"? `<div style='background-color:red; margin:11px auto; border-radius:4px; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">−</p><h5>${doc.data().Amount}</h5></div>`  : `<div style='background-color:RGB(5 250 30); border-radius:4px; margin:11px auto; width:50px; align-items: center; justify-content: center;color:white; height:30px; display:flex' ><p style="margin-top:10px;">+</p><h5>${doc.data().Amount}</h5></div>`}
+                </div>
+                </td>`
+                 
+                  // doc.data() is never undefined for query doc snapshots
+                  console.log(doc.id, " => ", doc.data());
+                  let date = (doc.id, " => ", doc.data().Date)
+              });
+        
+         
+      });
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+  console.log("Hi");
+}
+displaytrans()
 
 
 
@@ -657,25 +690,8 @@ function airtimetran() {
 
 airtimetran()
 function nouser() {
-    loder.style.display=
-    'none';
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/v8/firebase.User
-          var uid = user.uid;
-          console.log(user);
-         
-          // ...
-        } else {
-          // User is signed out
-          // ...
-          alert("Please log in first! before you can coutinue");
-          window.location.href="login.html"
-          console.log("no user");
-        }
-      });
-     
+   console.log("hi");
+   
 }
 
      
@@ -689,7 +705,7 @@ function sendertran() {
 db.collection(users.email).add({
     name:foundUser.Username,
     Amount:ssss.value,
-    Date: datte.getHours(),
+    Date: datte,
     category:"Transfer",
      type:"Debit",
      airtime:false
