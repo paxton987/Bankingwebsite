@@ -3,7 +3,9 @@ let body5=document.getElementById("body5")
 let email1=document.getElementById("email1")
 let password1=document.getElementById("password1")
 let body6=document.getElementById("body6")
+let body9=document.getElementById("body9")
 let body8=document.getElementById("body8")
+let exampleModal=document.getElementById("exampleModal")
 let card=document.getElementById("card")
 let contain1=document.getElementById("contain")
 let distrans2=document.getElementById("distrans2")
@@ -95,6 +97,7 @@ const firebaseConfig = {
 function transferpage() {
     body5.style.display="none"
     body7.style.display="none"
+    body9.style.display="none"
     body6.style.display="flex" 
     contain1.style.left="-200%"
   
@@ -109,6 +112,8 @@ function home() {
     body6.style.display="none"
     body7.style.display="none"
     body8.style.display="none"
+    body9.style.display="none"
+
 
     contain1.style.left="-200%"
    
@@ -118,6 +123,8 @@ function airtime9() {
     body6.style.display="none"
     body7.style.display="flex"
     body8.style.display="none"
+    body9.style.display="none"
+
 
 
     contain1.style.left="-200%"
@@ -128,6 +135,17 @@ function profile() {
     body6.style.display="none"
     body7.style.display="none"
     body8.style.display="flex"
+    body9.style.display="none"
+
+    contain1.style.left="-200%"
+   
+}
+function transactionH() {
+    body5.style.display="none"
+    body6.style.display="none"
+    body7.style.display="none"
+    body8.style.display="none"
+    body9.style.display="flex"
 
     contain1.style.left="-200%"
    
@@ -230,6 +248,8 @@ foundreceiver()
     let showamout=password.value
     if (password.value=="" || email1.value=="" ) {
         alert("input field cannot be empty")  
+      
+
      
     }else{
         card.innerHTML=showamout
@@ -246,7 +266,6 @@ foundreceiver()
     let discription2 = disc2.value
     if (ssss.value=="" || useracc.value=="") {
         alert('enter details')
-
     }else {
         useramt.innerHTML=showamout1
         ssss1.innerHTML=showamout
